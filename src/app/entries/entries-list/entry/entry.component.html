@@ -1,0 +1,14 @@
+<a
+[routerLink]="entry.id"
+routerLinkActive="entry-active"
+class="list-group-item clearfix"
+[ngClass]="injectClass()">
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">
+            {{ entry.title }}
+        </h4>
+        <p class="list-group-item-text">
+            {{ entry.description | shorten:100 }}
+        </p>
+    </div>
+</a>

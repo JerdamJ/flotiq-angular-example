@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-12">
+        <h3>Entry details</h3>
+    </div>
+</div>
+<hr>
+<div *ngIf="loading" class="spinner-position">
+    <fa-icon [icon]="faSpinner" [spin]="true" size="6x"></fa-icon>
+</div>
+<div *ngIf="!loading">
+    <div class="entry-title">
+        <div class="row">
+            <div class="col-12">
+                <h2>{{ entry.title }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="entry-details">
+        <div class="row">
+            <div class="col-12 description">
+                {{ entry.description }}
+            </div>
+        </div>
+    </div>
+    <div class="entry-status">
+        <div class="row br-bt pd-b-20">
+            <div class="col-3">
+                Status
+            </div>
+            <div class="col-9">
+                {{ entry.status }}
+            </div>
+        </div>
+        <div class="row br-bt pd-t-20 pd-b-20">
+            <div class="col-3">
+                Created
+            </div>
+            <div class="col-9">
+                {{ entry.internal.createdAt | date:'medium' }}
+            </div>
+        </div>
+        <div class="row pd-t-20">
+            <div class="col-3">
+                Updated
+            </div>
+            <div class="col-9">
+                {{ entry.internal.updatedAt | date:'medium' }}
+            </div>
+        </div>
+    </div>
+    <div class="entry-buttons">
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-primary" type="button" (click)="editEntry()" [disabled]="processing">Edit</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-danger" type="button" (click)="deleteEntry()" [disabled]="processing">
+                    Delete
+                    <span *ngIf="processing">
+                        <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Create/Edit entry</h3>
+    </div>
+</div>
+<hr>
+<div *ngIf="loading" class="spinner-position">
+    <fa-icon [icon]="faSpinner" [spin]="true" size="6x"></fa-icon>
+</div>
+<div class="form-block" *ngIf="!loading">
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input
+                type="text"
+                id="title"
+                formControlName="title"
+                class="form-control">
+            <p class="alert alert-danger" *ngIf="!entryForm.valid && entryForm.controls.title.touched">This property is required</p>
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input
+                type="text"
+                id="date"
+                formControlName="date"
+                class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+                formControlName="description"
+                id="description"
+                class="form-control"
+                rows="5"></textarea>
+        </div>
+        <div class="form-group" *ngIf="editMode">
+            <select class="form-control" formControlName="status">
+                <option value="New">New</option>
+                <option value="In progress">In progress</option>
+                <option value="Done">Done</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="sending || !entryForm.valid">Submit
+            <span *ngIf="sending">
+                <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
+            </span>
+        </button>
+        <button class="btn btn-danger mr-lt-20" type="button" (click)="onCancel()" [disabled]="sending">Cancel</button>
+    </form>
+</div>
+
+<!-- facetowanie, kategorie, wagi -->

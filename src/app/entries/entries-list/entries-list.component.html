@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-12">
+        <button class="btn btn-success" (click)="newEntry()">New Entry</button>
+    </div>
+</div>
+<hr>
+<div class="row" *ngIf="!entries">
+    <div class="col-sm-12">
+        <h3>No entries to show</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <app-entry *ngFor="let entry of entries; let i = index" [entry]="entry" [index]="i"></app-entry>
+    </div>
+</div>

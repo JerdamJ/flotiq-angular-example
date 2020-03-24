@@ -1,27 +1,33 @@
-# AngularFlotiqBoilerplate
+# Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+This project is an example that uses Angular generated package in Flotiq.
 
-## Development server
+# Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. npm >= 6.*
+2. Flotiq Account - you can create one [here](https://editor.flotiq.com)
+3. Your own content type definition. For example purpose I have created a To-Do-List content object which contains:
+    * title : type string
+    * date : type string
+    * description : type string
+    * status : type string
+4. Angular generated package which can be downloaded from your Flotiq dashboard after you log in.
 
-## Code scaffolding
+# Installation instructions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. npm install
+2. npm install (path to your generated package)/dist 
 
-## Build
+Remember you have to build your generated package before injecting it into application. Read package README for detailed instructions.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Run
 
-## Running unit tests
+1. ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Generate application files for production mode that can be deployed to your server:
 
-## Running end-to-end tests
+1. ng build --prod
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Free hosting option
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. [Firebase hosting](https://firebase.google.com/docs/hosting)
