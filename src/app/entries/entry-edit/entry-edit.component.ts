@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { FlotiqService } from 'src/app/services/flotiq.service';
-import { Todolist } from 'flotiq';
 
+import { Todolist } from 'flotiq';
+import { FlotiqService } from '../../services/flotiq.service';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
