@@ -15,13 +15,20 @@ This project is an example that uses Angular generated package in Flotiq.
 5. Angular generated package which can be downloaded from your Flotiq dashboard after you log in.
 
 ## Installation instructions
+Remember you have to build your generated package before injecting it into application. Read package README for detailed instructions or follow these below:
+### In downloaded package directory:
+1. npm install
+2. npm run build
 
+This will generate a `dist` folder in your downloaded package directory, which will be used later.
+
+### In application directory:
 1. npm install
 2. npm install (path to your generated package)/dist
 3. In (path to your generrated package)/dist run `npm link`
 4. In your project directory run `npm link flotiq`
 
-Remember you have to build your generated package before injecting it into application. Read package README for detailed instructions.
+
 
 In `environment.ts` and `environment.prod.ts` provide an FLOTIQ_API_KEY suitable to your needs (full, readOnly, restricted to specific Content Type Definition);
 
