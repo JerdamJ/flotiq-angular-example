@@ -23,6 +23,8 @@ This project is an example that uses Angular generated package in Flotiq.
 
 Remember you have to build your generated package before injecting it into application. Read package README for detailed instructions.
 
+In `environment.ts` and `environment.prod.ts` provide an FLOTIQ_API_KEY suitable to your needs (full, readOnly, restricted to specific Content Type Definition);
+
 ## Run
 
 1. ng serve
