@@ -34,7 +34,7 @@ In `environment.ts` and `environment.prod.ts` provide an FLOTIQ_API_KEY suitable
 
 ## Run
 
-1. ng serve
+1. npm start (you could use `ng serve` also, but your installed Angular version might be incompatible)
 
 ## Generate application files for production mode that can be deployed to your server:
 
