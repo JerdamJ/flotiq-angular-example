@@ -7,7 +7,7 @@ This project is an example that uses Angular generated package in Flotiq.
 1. Node >= 10.9
 2. Npm >= 5.5.1
 3. Flotiq Account - you can create one [here](https://editor.flotiq.com)
-4. Your own content type definition. For example purpose I have created a `todolist` (API name) content object definition which contains:
+4. Your own content type definition. For example purpose I have created a `todolist` (API Name: `todolist`, Label: `to-do-list`) content object definition which contains:
     * title : type string
     * date : type string
     * description : type string
@@ -15,6 +15,8 @@ This project is an example that uses Angular generated package in Flotiq.
 5. Angular generated package which can be downloaded from your Flotiq dashboard after you log in.
 
 <b>IMPORTANT!</b> To be 100% sure what names of services and models package created for you, go to package directory and check `api` and `model` folders and look for correspinding names. 
+
+If you want quick setup and use Content Type Definition used by me you have to create such one by using the same names as mentioned in point 4!
 
 ## Installation instructions
 Remember you have to build your generated package before injecting it into application. Read package README for detailed instructions or follow these below:
@@ -40,7 +42,7 @@ In `environment.ts` and `environment.prod.ts` provide an FLOTIQ_API_KEY suitable
 
 ## Generate application files for production mode that can be deployed to your server:
 
-1. ng build --prod
+1. npm build --prod
 
 ## Available demo:
 
@@ -56,6 +58,3 @@ If you receive an error `Error: You need to import the HttpClientModule in your 
 in `compilerOptions` section:
 
 `"paths": { "@angular/*": [ "./node_modules/@angular/*" ] }`
-
-There might be a case when names of "ToDoList" content type definition won't match. Change the name of import `ContentXService` in `flotiq.service.ts` file to your definition.
-This goes same for your Content Object Model Interface.
