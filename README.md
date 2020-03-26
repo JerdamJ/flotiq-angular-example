@@ -55,5 +55,4 @@ in `compilerOptions` section:
 
 `"paths": { "@angular/*": [ "./node_modules/@angular/*" ] }`
 
-There might be a case when names of "ToDoLists" content type definitions won't match. You can either:
-1. Change the name in `flotiq.service.ts` to your definition. 
+There might be a case when names of "ToDoList" content type definition won't match. Change the name of import `ContentXService` in `flotiq.service.ts` file to your definition.
