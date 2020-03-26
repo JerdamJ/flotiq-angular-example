@@ -7,7 +7,7 @@ This project is an example that uses Angular generated package in Flotiq.
 1. Node >= 8.9
 2. Npm >= 5.5.1
 3. Flotiq Account - you can create one [here](https://editor.flotiq.com)
-4. Your own content type definition. For example purpose I have created a `Todolist` content object which contains:
+4. Your own content type definition. For example purpose I have created a `ToDoList(API name)` content object definition which contains:
     * title : type string
     * date : type string
     * description : type string
@@ -54,3 +54,6 @@ If you receive an error `Error: You need to import the HttpClientModule in your 
 in `compilerOptions` section:
 
 `"paths": { "@angular/*": [ "./node_modules/@angular/*" ] }`
+
+There might be a case when names of "ToDoLists" content type definitions won't match. You can either:
+1. Change the name in `flotiq.service.ts` to your definition. 
