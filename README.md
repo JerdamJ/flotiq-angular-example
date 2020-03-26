@@ -14,6 +14,8 @@ This project is an example that uses Angular generated package in Flotiq.
     * status : type string
 5. Angular generated package which can be downloaded from your Flotiq dashboard after you log in.
 
+<b>IMPORTANT!</b> To be 100% sure what names of services and models package created for you, go to package directory and check `api` and `model` folders and look for correspinding names. 
+
 ## Installation instructions
 Remember you have to build your generated package before injecting it into application. Read package README for detailed instructions or follow these below:
 ### In downloaded package directory:
