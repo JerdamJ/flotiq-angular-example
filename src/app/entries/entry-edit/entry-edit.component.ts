@@ -9,7 +9,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 @Component({
     selector: 'app-entry-edit',
     templateUrl: './entry-edit.component.html',
-    styleUrls: ['./entry-edit.component.css', '../../shared/styles/loader.css']
+    styleUrls: ['./entry-edit.component.scss', '../../shared/styles/loader.scss']
 })
 export class EntryEditComponent implements OnInit {
 
