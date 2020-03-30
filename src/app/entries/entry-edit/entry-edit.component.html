@@ -1,38 +1,29 @@
-<div class="row">
-    <div class="col-sm-12">
-        <h3>Create/Edit entry</h3>
-    </div>
-</div>
-<hr>
-<div *ngIf="loading" class="spinner-position">
-    <fa-icon [icon]="faSpinner" [spin]="true" size="6x"></fa-icon>
-</div>
-<div class="form-block" *ngIf="!loading">
+<!-- <div class="form-block" *ngIf="!loading">
     <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="title">Title</label>
             <input
-                type="text"
-                id="title"
-                formControlName="title"
-                class="form-control">
+            type="text"
+            id="title"
+            formControlName="title"
+            class="form-control">
             <p class="alert alert-danger" *ngIf="!entryForm.valid && entryForm.controls.title.touched">This property is required</p>
         </div>
         <div class="form-group">
             <label for="date">Date</label>
             <input
-                type="text"
-                id="date"
-                formControlName="date"
-                class="form-control">
+            type="text"
+            id="date"
+            formControlName="date"
+            class="form-control">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
             <textarea
-                formControlName="description"
-                id="description"
-                class="form-control"
-                rows="5"></textarea>
+            formControlName="description"
+            id="description"
+            class="form-control"
+            rows="5"></textarea>
         </div>
         <div class="form-group" *ngIf="editMode">
             <select class="form-control" formControlName="status">
@@ -48,6 +39,88 @@
         </button>
         <button class="btn btn-danger mr-lt-20" type="button" (click)="onCancel()" [disabled]="sending">Cancel</button>
     </form>
+</div> -->
+<div *ngIf="loading" class="spinner-position">
+    <fa-icon [icon]="faSpinner" [spin]="true" size="6x"></fa-icon>
 </div>
-
-<!-- facetowanie, kategorie, wagi -->
+<div class="bg-white shadow overflow-hidden sm:rounded-lg" *ngIf="!loading">
+    <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+            <h3>Create/Edit entry</h3>
+        </h3>
+    </div>
+    <div>
+        <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+            <dl>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm leading-5 font-medium text-gray-500">
+                        <label for="title" class="block text-sm font-medium leading-5 text-gray-700">Title</label>
+                    </dt>
+                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <div>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input id="title" type="text" class="form-input block w-full sm:text-sm sm:leading-5" formControlName="title" />
+                            </div>
+                        </div>
+                    </dd>
+                </div>
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm leading-5 font-medium text-gray-500">
+                        <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Date</label>
+                    </dt>
+                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <div>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input id="date" type="text" class="form-input block w-full sm:text-sm sm:leading-5" formControlName="date" />
+                            </div>
+                        </div>
+                    </dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm leading-5 font-medium text-gray-500">
+                        <label for="description" class="block text-sm font-medium leading-5 text-gray-700">Description</label>
+                    </dt>
+                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <div>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <textarea
+                                formControlName="description"
+                                id="description"
+                                class="w-full"
+                                rows="15"></textarea>
+                            </div>
+                        </div>
+                    </dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6" *ngIf="editMode">
+                    <dt class="text-sm leading-5 font-medium text-gray-500">
+                        <label for="status" class="block text-sm font-medium leading-5 text-gray-700">Status</label>
+                    </dt>
+                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        <div>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <select class="w-full" formControlName="status">
+                                    <option value="New">New</option>
+                                    <option value="In progress">In progress</option>
+                                    <option value="Done">Done</option>
+                                </select>
+                            </div>
+                        </div>
+                    </dd>
+                </div>
+                <div class="bg-white w-full h-12">
+                    <button class="bg-blue-500 hover:bg-blue-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" 
+                    type="button" 
+                    (click)="onSubmit()" 
+                    [disabled]="processing"><span>Submit</span></button>
+                    <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" type="button" (click)="onCancel()" [disabled]="processing">
+                        <span>Cancel</span>
+                        <span *ngIf="processing">
+                            <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
+                        </span>
+                    </button>
+                </div>
+            </dl>
+        </form>
+    </div>
+</div>
