@@ -1,16 +1,21 @@
-<div class="row">
-    <div class="col-sm-12">
-        <button class="btn btn-success" (click)="newEntry()">New Entry</button>
+<div class="flex mb-4">
+    <div class="w-full h-12">
+        <button class="bg-green-300 hover:bg-green-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center" (click)="newEntry()">
+            <span>New Entry</span>
+        </button>
     </div>
 </div>
-<hr>
-<div class="row" *ngIf="!entries">
-    <div class="col-sm-12">
+<div class="flex mb-4" *ngIf="!entries">
+    <div class="w-full h-12">
         <h3>No entries to show</h3>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-        <app-entry *ngFor="let entry of entries; let i = index" [entry]="entry" [index]="i"></app-entry>
+<div class="flex mb-4" *ngIf="entries">
+    <div class="w-full h-12">
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+            <ul>
+                <app-entry *ngFor="let entry of entries; let i = index" [entry]="entry" [index]="i"></app-entry>
+            </ul>
+        </div>
     </div>
 </div>
