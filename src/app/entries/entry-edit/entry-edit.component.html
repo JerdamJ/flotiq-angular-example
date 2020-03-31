@@ -17,11 +17,11 @@
                 </div>
                 <div class="md:w-4/5">
                     <input 
-                        class="appearance-none border-2 border-black-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
-                        focus:outline-none focus:bg-white focus:border-green-400" 
-                        id="title" 
-                        type="text"
-                        formControlName="title">
+                    class="appearance-none border-2 border-black-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
+                    focus:outline-none focus:bg-white focus:border-green-400" 
+                    id="title" 
+                    type="text"
+                    formControlName="title">
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -32,11 +32,11 @@
                 </div>
                 <div class="md:w-4/5">
                     <input 
-                        class="appearance-none border-2 border-black-200 rounded w-full py-2 px-4 
-                        text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
-                        id="date" 
-                        type="text" 
-                        formControlName="date">
+                    class="appearance-none border-2 border-black-200 rounded w-full py-2 px-4 
+                    text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+                    id="date" 
+                    type="text" 
+                    formControlName="date">
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -51,7 +51,7 @@
                     id="description"
                     class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 
                     text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 resize-none w-full"
-                    rows="15"></textarea>
+                    rows="10"></textarea>
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6" *ngIf="editMode">
@@ -64,109 +64,35 @@
                     <div class="inline-block relative w-64">
                         <select class="block appearance-none w-full bg-white border-2 border-black-400 hover:border-dark-500 px-4 py-2 pr-8 rounded leading-tight focus:border-green-500"
                         formControlName="status">
-                            <option value="New">New</option>
-                            <option value="In progress">In progress</option>
-                            <option value="Done">Done</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
+                        <option value="New">New</option>
+                        <option value="In progress">In progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                     </div>
                 </div>
             </div>
-            <div class="md:flex md:items-center mb-6">
-                <div class="md:w-1/3">
-                </div>
-                <div class="md:w-2/3 md:text-right">
-                    <button class="bg-blue-500 hover:bg-blue-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" 
-                    type="button" 
-                    (click)="onSubmit()"
-                    [ngClass]="disableInput()"
-                    [disabled]="sending">
-                        <span>Submit</span>
-                        <span class="ml-1" *ngIf="sending">
-                            <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
-                        </span>
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" type="button" (click)="onCancel()" [disabled]="processing">
-                        <span>Cancel</span>
-                    </button>
-                </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
             </div>
-        </form>
-        <!-- <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
-            <dl>
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        <label for="title" class="block text-sm font-medium leading-5 text-gray-700">Title</label>
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        <div>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <input id="title" type="text" class="form-input block w-full sm:text-sm sm:leading-5" formControlName="title" />
-                            </div>
-                        </div>
-                    </dd>
-                </div>
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        <label for="date" class="block text-sm font-medium leading-5 text-gray-700">Date</label>
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        <div>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <input id="date" type="text" class="form-input block w-full sm:text-sm sm:leading-5" formControlName="date" />
-                            </div>
-                        </div>
-                    </dd>
-                </div>
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        <label for="description" class="block text-sm font-medium leading-5 text-gray-700">Description</label>
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        <div>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <textarea
-                                formControlName="description"
-                                id="description"
-                                class="w-full resize-none"
-                                rows="15"></textarea>
-                            </div>
-                        </div>
-                    </dd>
-                </div>
-                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6" *ngIf="editMode">
-                    <dt class="text-sm leading-5 font-medium text-gray-500">
-                        <label for="status" class="block text-sm font-medium leading-5 text-gray-700">Status</label>
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                        <div class="inline-block relative w-64">
-                            <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                            formControlName="status">
-                            <option value="New">New</option>
-                            <option value="In progress">In progress</option>
-                            <option value="Done">Done</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                    </div>
-                </dd>
-            </div>
-            <div class="bg-white w-full h-12">
+            <div class="md:w-2/3 md:text-right">
                 <button class="bg-blue-500 hover:bg-blue-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" 
                 type="button" 
-                (click)="onSubmit()" 
-                [disabled]="processing"><span>Submit</span></button>
-                <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" type="button" (click)="onCancel()" [disabled]="processing">
-                    <span>Cancel</span>
-                    <span *ngIf="processing">
-                        <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
-                    </span>
-                </button>
-            </div>
-        </dl>
-    </form> -->
+                (click)="onSubmit()"
+                [ngClass]="disableInput()"
+                [disabled]="sending">
+                <span>Submit</span>
+                <span class="ml-1" *ngIf="sending">
+                    <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
+                </span>
+            </button>
+            <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" type="button" (click)="onCancel()" [disabled]="sending">
+                <span>Cancel</span>
+            </button>
+        </div>
+    </div>
+</form>
 </div>
 </div>
