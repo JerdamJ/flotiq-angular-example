@@ -46,7 +46,7 @@ export class EntryEditComponent implements OnInit {
                         id: new FormControl(this.id),
                         title: new FormControl(responseEntry.title),
                         description: new FormControl(responseEntry.description),
-                        date: new FormControl(responseEntry.description),
+                        date: new FormControl(responseEntry.date),
                         status: new FormControl(responseEntry.status)
                     });
                 }, error => {
@@ -96,5 +96,9 @@ export class EntryEditComponent implements OnInit {
         } else {
             this.router.navigate(['entries']);
         }
+    }
+
+    disableInput() {
+        return this.sending ? 'opacity-50 cursor-not-allowed' : '';
     }
 }

@@ -12,7 +12,7 @@
 </div>
 <div class="flex mb-4" *ngIf="entries">
     <div class="w-full h-12">
-        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+        <div class="bg-white overflow-hidden">
             <ul>
                 <app-entry *ngFor="let entry of entries; let i = index" [entry]="entry" [index]="i"></app-entry>
             </ul>

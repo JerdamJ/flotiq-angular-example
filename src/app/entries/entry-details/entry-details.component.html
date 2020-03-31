@@ -48,7 +48,7 @@
                 [disabled]="processing"><span>Edit</span></button>
                 <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" type="button" (click)="deleteEntry()" [disabled]="processing">
                     <span>Delete</span>
-                    <span *ngIf="processing">
+                    <span class="ml-1" *ngIf="processing">
                         <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
                     </span>
                 </button>

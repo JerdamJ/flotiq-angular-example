@@ -1,26 +1,6 @@
-// a {
-//     text-decoration: none;
-//     border-radius: 0 !important;
-//     margin-bottom: 10px;
-//     border: 5px solid rgb(100,100,100);
-// }
-
-// a:hover:not(.active) {
-//     background-color: lightblue;
-// }
-
-// .status-completed {
-//     background-color: lightgreen;
-// }
-
-// .status-pending {
-//     background-color: lightyellow;
-// }
-
-// .status-new {
-//     background-color: white;
-// }
-
-// a.entry-active {
-//     border: 5px solid blue;
-// }
+.active {
+    @apply border-solid;
+    @apply border-blue-700;
+    @apply border-2;
+    @apply bg-blue-200;
+}
