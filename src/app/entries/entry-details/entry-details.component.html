@@ -1,7 +1,7 @@
 <div *ngIf="loading" class="spinner-position">
     <fa-icon [icon]="faSpinner" [spin]="true" size="6x"></fa-icon>
 </div>
-<div class="bg-white border-solid border-2 border-gray-300 overflow-hidden sm:rounded-lg" *ngIf="!loading">
+<div class="bg-white border-solid border-2 border-gray-300 overflow-hidden" *ngIf="!loading">
     <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
             {{ entry.title }}
@@ -50,11 +50,11 @@
                 </dd>
             </div>
             <div class="bg-white w-full h-12 text-right mb-5 mt-5">
-                <button class="bg-blue-500 hover:bg-blue-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4" 
+                <button class="bg-blue-500 hover:bg-blue-400 text-white-800 font-bold py-2 px-8 inline-flex text-center ml-4" 
                 type="button" 
                 (click)="editEntry()" 
-                [disabled]="processing"><span>Edit</span></button>
-                <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-4 rounded inline-flex items-center ml-4 mr-4" type="button" (click)="deleteEntry()" [disabled]="processing">
+                [disabled]="processing">Edit</button>
+                <button class="bg-red-500 hover:bg-red-400 text-white-800 font-bold py-2 px-6 inline-flex items-center ml-4 mr-4" type="button" (click)="deleteEntry()" [disabled]="processing">
                     <span>Delete</span>
                     <span class="ml-1" *ngIf="processing">
                         <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
