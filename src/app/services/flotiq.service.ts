@@ -20,7 +20,7 @@ export class FlotiqService {
     }
 
     listEntries() {
-        return this.flotiqApiService.todolistList();
+        return this.flotiqApiService.todolistList('1', '10', '', '', '1');
     }
 
     getEntry(id: string) {

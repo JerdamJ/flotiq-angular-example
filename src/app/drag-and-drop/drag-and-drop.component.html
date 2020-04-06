@@ -1,0 +1,41 @@
+<div class="flex mb-4">
+    <div class="w-1/3" style="height: 500px;">
+        <h2 class="text-center pt-4 pb-4 text-2xl">New</h2>
+        <ul
+            cdkDropList
+            #newList="cdkDropList"
+            [cdkDropListData]="newEntries"
+            [cdkDropListConnectedTo]="[inProgressList, doneList]"
+            (cdkDropListDropped)="drop($event)"
+            class="h-full bg-blue-200 pt-2"
+            id="newList">
+            <app-drag-element *ngFor="let entry of newEntries; let i = index" [entry]="entry" [index]="i" cdkDrag [cdkDragData]="entry"></app-drag-element>
+        </ul>
+    </div>
+    <div class="w-1/3" style="height: 500px;">
+        <h2 class="text-center pt-4 pb-4 text-2xl">In progress</h2>
+        <ul
+            cdkDropList
+            #inProgressList="cdkDropList"
+            [cdkDropListData]="inProgressEntries"
+            [cdkDropListConnectedTo]="[newList, doneList]"
+            (cdkDropListDropped)="drop($event)"
+            class="h-full bg-yellow-200 pt-2"
+            id="inProgressList">
+            <app-drag-element *ngFor="let entry of inProgressEntries; let i = index" [entry]="entry" [index]="i" cdkDrag [cdkDragData]="entry"></app-drag-element>
+        </ul>
+    </div>
+    <div class="w-1/3" style="height: 500px;">
+        <h2 class="text-center pt-4 pb-4 text-2xl">Done</h2>
+        <ul
+            cdkDropList
+            #doneList="cdkDropList"
+            [cdkDropListData]="doneEntries"
+            [cdkDropListConnectedTo]="[newList, inProgressList]"
+            (cdkDropListDropped)="drop($event)"
+            class="h-full bg-green-200 pt-2"
+            id="doneList">
+            <app-drag-element *ngFor="let entry of doneEntries; let i = index" [entry]="entry" [index]="i" cdkDrag [cdkDragData]="entry"></app-drag-element>
+        </ul>
+    </div>
+  </div>

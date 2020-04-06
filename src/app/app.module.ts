@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { environment } from '../environments/environment';
 import { EntriesModule } from './entries/entries.module';
+import { DragAndDropModule } from './drag-and-drop/drag-and-drop.module';
 
 
 
@@ -22,14 +23,15 @@ export function apiConfigFactory(): Configuration {
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent
+        HeaderComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         ApiModule.forRoot(apiConfigFactory),
         HttpClientModule,
-        EntriesModule
+        EntriesModule,
+        DragAndDropModule
     ],
     providers: [],
     bootstrap: [AppComponent]
