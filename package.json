@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ngv": "ng --version"
+    "ngv": "ng --version",
+    "scully": "scully",
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,9 @@
     "@fortawesome/angular-fontawesome": "^0.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@scullyio/init": "0.0.26",
+    "@scullyio/ng-lib-v8": "latest",
+    "@scullyio/scully": "latest",
     "bootstrap": "^4.4.1",
     "flotiq": "file:../sdk/typescript-angular-sdk/dist",
     "rxjs": "~6.4.0",

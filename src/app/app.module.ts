@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { environment } from '../environments/environment';
 import { EntriesModule } from './entries/entries.module';
 import { DragAndDropModule } from './drag-and-drop/drag-and-drop.module';
+import { ScullyLibModule } from '@scullyio/ng-lib-v8';
 
 
 
@@ -31,7 +32,8 @@ export function apiConfigFactory(): Configuration {
         ApiModule.forRoot(apiConfigFactory),
         HttpClientModule,
         EntriesModule,
-        DragAndDropModule
+        DragAndDropModule,
+        ScullyLibModule
     ],
     providers: [],
     bootstrap: [AppComponent]
